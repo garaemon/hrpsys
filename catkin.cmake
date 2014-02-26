@@ -18,7 +18,6 @@ if (_checkout_failed)
   message(FATAL_ERROR "Download hrpsys failed")
 endif(_checkout_failed)
 execute_process(
-  COMMAND sed -i s@{OPENHRP_DIR}/share/OpenHRP-3.1/idl/@{OPENHRP_DIR}/share/openhrp3/share/OpenHRP-3.1/idl/@ ${PROJECT_SOURCE_DIR}/build/hrpsys-base-source/idl/CMakeLists.txt
   COMMAND cmake -E chdir ${PROJECT_SOURCE_DIR} make -f Makefile.hrpsys-base OPENRTM_DIR=${OPENRTM_DIR} INSTALL_DIR=${CATKIN_DEVEL_PREFIX} installed
                 RESULT_VARIABLE _make_failed)
 if (_make_failed)
